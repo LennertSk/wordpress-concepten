@@ -32,7 +32,7 @@ class Custom_Employment_Widget extends WP_Widget {
 
         echo $before_widget;
         /* Widget Content Below */
-            echo "Right now I'm  "; 
+            echo "Right now I'm [$job] "; 
         /* Widget Content Above */
         echo $after_widget;
     }
@@ -43,7 +43,7 @@ class Custom_Employment_Widget extends WP_Widget {
         <p>
             <label>
                 <input type="radio" value="student" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'student' ); ?> id="<?php echo $this->get_field_id( 'job' ); ?>" />
-                <?php echo esc_attr_e( 'studying hard for my exams', 'text_domain' ); ?>
+                <?php esc_attr_e( 'studying hard for my exams', 'text_domain' ); ?>
 
             </label>
         </p>
