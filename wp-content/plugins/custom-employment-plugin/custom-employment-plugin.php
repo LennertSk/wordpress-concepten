@@ -42,7 +42,7 @@ class Custom_Employment_Widget extends WP_Widget {
         <?php extract( $instance ); ?>
         <p>
             <label>
-                <input type="radio" value="studying hard for my exams" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'student' ); ?> id="<?php echo $this->get_field_id( 'job' ); ?>" />
+                <input type="radio" value="studying hard for my exams" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'studying hard for my exams' ); ?> id="<?php echo $this->get_field_id( 'job' ); ?>" />
                 <?php esc_attr_e( 'student', 'text_domain' ); ?>
 
             </label>
