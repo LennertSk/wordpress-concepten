@@ -32,7 +32,7 @@ class Custom_Employment_Widget extends WP_Widget {
 
         echo $before_widget;
         /* Widget Content Below */
-            echo "Right now I'm [$job] "; 
+            echo "Right now I'm $job "; 
         /* Widget Content Above */
         echo $after_widget;
     }
