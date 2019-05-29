@@ -43,7 +43,8 @@ class Custom_Employment_Widget extends WP_Widget {
         <p>
             <label>
                 <input type="radio" value="student" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'student' ); ?> id="<?php echo $this->get_field_id( 'job' ); ?>" />
-                <?php esc_attr_e( 'studying hard for my exams', 'text_domain' ); ?>
+                <?php echo esc_attr_e( 'studying hard for my exams', 'text_domain' ); ?>
+
             </label>
         </p>
         <p>
