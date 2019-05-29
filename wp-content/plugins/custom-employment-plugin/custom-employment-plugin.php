@@ -42,21 +42,21 @@ class Custom_Employment_Widget extends WP_Widget {
         <?php extract( $instance ); ?>
         <p>
             <label>
-                <input type="radio" value="student" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'student' ); ?> id="<?php echo $this->get_field_id( 'job' ); ?>" />
-                <?php esc_attr_e( 'studying hard for my exams', 'text_domain' ); ?>
+                <input type="radio" value="studying hard for my exams" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'student' ); ?> id="<?php echo $this->get_field_id( 'job' ); ?>" />
+                <?php esc_attr_e( 'student', 'text_domain' ); ?>
 
             </label>
         </p>
         <p>
             <label>
-                <input type="radio" value="working" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'working' ); ?> id="<?php echo $this->get_field_id( 'jos' ); ?>" />
-                <?php esc_attr_e( 'working my ass off 24/7', 'text_domain' ); ?>
+                <input type="radio" value="working my ass off 24/7" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'working' ); ?> id="<?php echo $this->get_field_id( 'jos' ); ?>" />
+                <?php esc_attr_e( 'working', 'text_domain' ); ?>
             </label>
         </p>
         <p>
             <label>
-                <input type="radio" value="jobless" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'jobless' ); ?> id="<?php echo $this->get_field_id( 'jos' ); ?>" />
-                <?php esc_attr_e( 'not really doing anything, just enjoying life', 'text_domain' ); ?>
+                <input type="radio" value="not really doing anything, just enjoying life" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'jobless' ); ?> id="<?php echo $this->get_field_id( 'jos' ); ?>" />
+                <?php esc_attr_e( 'jobless', 'text_domain' ); ?>
             </label>
         </p>
     <?php }
