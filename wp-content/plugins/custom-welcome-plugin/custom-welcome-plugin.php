@@ -41,23 +41,12 @@ class My_Custom_Widget extends WP_Widget {
     // Keep this line
 	    echo $args['before_widget'];
 
-	    // echo $args['before_title'] . apply_filters( 'widget_title', 'Custom Hello Widget' ) . $args['after_title'];
-
-
-	    // if (!isset($_COOKIE['visited'])) {
-     // 		echo "Welcome, looks like this is your first visit here, feel free to look around!";     
-    	// }
-    	// else{
-    	// 	echo "Welcome back, check out my latest projects!";
-    	// }
-    	// echo "Hellow, this is your " .$_COOKIE('count');
 
     	if ($_COOKIE['count'] == 0): 
             echo "Welcome! This is your visit! So sit back and enjoy the ride!.";
         else:
             echo "Welcome back! You have viewed this site " .$_COOKIE['count']."  times."; 
         endif;
-
 
 	    // Keep this line
 	    echo $args['after_widget'];
