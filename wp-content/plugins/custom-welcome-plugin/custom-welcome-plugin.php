@@ -9,16 +9,6 @@
  */
 
 
-// if (!isset($_COOKIE['visited'])) 
-// {
-//     setcookie ('visited', 'yes', time() + 3600); 
-//     $cookie = ++$_COOKIE['count'];
-//     setcookie('count', $cookie);
-// }
-// else{
-// 	setcookie ('count', 1);
-// }
-
 setcookie('count', isset($_COOKIE['count']) ? ++$_COOKIE['count'] : 1);
 
 
