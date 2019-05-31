@@ -10,75 +10,73 @@
 
 
 
-// Widget 01 ----------------------------------------------
+// widgetz
 
-class Custom_Employment_Widget extends WP_Widget {
-    // Initialize Widget with Options
+class My_Employment_Widget extends WP_Widget {
+    // Create widget
     public function __construct() {
         parent::__construct(
-            'custom_employment_widget',
-            'Custom Emplyment Widget',
-            array(
-                'classname'   => 'custom_employment_widget',
-                'description' => 'Custom Emplyment Widget'
-            )
+            'My_Employment_Widget', // Base ID
+            'My Employment Widget', // Name
+            array( 'description' => 'This is My Employment Widget.') // Arguments
         );
     }
-
-    // Widget Front End
+    // Front-End Display of the Widget
     public function widget( $args, $instance ) {
-        extract( $args );
-        extract( $instance );
-
-        echo $before_widget;
-        /* Widget Content Below */
-            echo "Right now I'm $job "; 
-        /* Widget Content Above */
-        echo $after_widget;
+        // Saved widget options
+        
+        
+        $workType  = $instance['work_type'];
+       
+        
+        // Display information
+        echo '<div class="my-widget block">';
+            if ( !empty( $workType ) ) {
+                echo '<strong>Age:</strong> ' . $workType . '<br />';
+            }
+        echo '</div>';
     }
-
-    // Widget Admin Form
-    public function form( $instance ) { ?>
-        <?php extract( $instance ); ?>
+    // Back-end form of the Widget
+    public function form( $instance ) {
+        // Check for values
+        if ( isset( $instance[ 'work_type' ] ) ) {
+            $workType = $instance[ 'work_type' ];
+        }
+        ?>
         <p>
-            <label>
-                <input type="radio" value="studying hard for my exams" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'studying hard for my exams' ); ?> id="<?php echo $this->get_field_id( 'job' ); ?>" />
-                <?php esc_attr_e( 'student', 'text_domain' ); ?>
-
-            </label>
+            <label for="<?php echo $this->get_field_id( 'work_type' ); ?>">Age:</label> 
+            <select class="widefat" id="<?php echo $this->get_field_id('work_type'); ?>" name="<?php echo $this->get_field_name('work_type'); ?>">
+                <?php
+                    $options = array( 'Working', 'Student', 'Out of Work' );
+                    foreach ( $options as $option ) {
+                        echo '<option value="' . $option . '" id="' . $option . '"', $workType == $option ? ' selected="selected"' : '', '>' . $option . '</option>';
+                    }
+                ?>
+            </select>
         </p>
-        <p>
-            <label>
-                <input type="radio" value="working my ass off 24/7" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'working' ); ?> id="<?php echo $this->get_field_id( 'jos' ); ?>" />
-                <?php esc_attr_e( 'working', 'text_domain' ); ?>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input type="radio" value="not really doing anything, just enjoying life" name="<?php echo $this->get_field_name( 'job' ); ?>" <?php checked( $job, 'jobless' ); ?> id="<?php echo $this->get_field_id( 'jos' ); ?>" />
-                <?php esc_attr_e( 'jobless', 'text_domain' ); ?>
-            </label>
-        </p>
-    <?php }
-
-    // Sanitize and Save Options
+       
+    <?php 
+    }
+    // Sanitize and return the safe form values
     public function update( $new_instance, $old_instance ) {
-        extract( $new_instance );
         $instance = array();
-
-        $instance['job'] = ( !empty( $job ) ) ? sanitize_text_field( $job ) : null;
-
+        $instance['work_type']     = ( !empty( $new_instance['work_type'] ) ) ? strip_tags( $new_instance['work_type'] ) : '';
         return $instance;
     }
 }
+// Register widget
+add_action( 'widgets_init', function(){
+     register_widget( 'My_Employment_Widget' );
+});
 
-function custom_employment_widget() {
-    register_widget( 'Custom_Employment_Widget' );
-}
-add_action( 'widgets_init', 'custom_employment_widget' );
 
 
 
 ?> 
+
+
+
+
+
 
 
